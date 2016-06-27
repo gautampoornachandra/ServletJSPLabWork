@@ -1,6 +1,10 @@
 package com.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,10 +29,12 @@ public class SimpleServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//response.getWriter.write("Hello World!");
-		response.getWriter().append("Hello World! ");
+		//Servlet to return Date and Time to a HTML page - Lab1
+		String message = LocalDateTime.now().toString();
+        
+		response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<h2>" + message + "</h2>");
 	}
 
 	/**
