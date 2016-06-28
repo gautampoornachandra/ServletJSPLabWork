@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,7 +49,11 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute(id, "name");
 		if (id.equals("admin") && pass.equals("admin")) {
 			
+			Cookie name = new Cookie("name", request.getParameter("name"));
+			
 	        out.println("<h2>" +"Welcome "+ id + "</h2>");
+	        
+	        response.addCookie( name );
 			
 		} else {
 			
