@@ -142,13 +142,8 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                	<%User user= (User)request.getAttribute("user");
-                		if(user==null){
-                			user = new User();
-                		}
                 	
-                	%>
-                    <h1 class="page-header">Welcome <%= user.getName() %></h1>
+                    <h1 class="page-header">Welcome ${user.name}</h1>
                 </div>
             </div>
 
