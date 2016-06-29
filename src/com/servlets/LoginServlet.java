@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.User;
+
+
+
 
 
 /**
@@ -43,23 +47,32 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		User user= new User();
+		user.setName(request.getParameter("username"));
+		
 		
 		String id = request.getParameter("username");
 		String pass = request.getParameter("password");
 		
+		
+	
+		
+		System.out.println("Name: "+user.getName());
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		RequestDispatcher rd = null;
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
+		request.setAttribute("user", user);
 		
-		request.setAttribute(id, "name");
 		
 		if (id.equals("admin") && pass.equals("admin")) {
 			
 			Cookie name = new Cookie("name", id);
 	        response.addCookie( name );
 	        //out.println("<h2>" +"Welcome "+ id + "</h2>");
-	        response.sendRedirect("home.jsp");
+	        rd.forward(request,response);
+	        //response.sendRedirect("home.jsp");
 	        //response.sendRedirect("/JEEDemoProject/Dash/dashboard.html");
 			
 		} else {
