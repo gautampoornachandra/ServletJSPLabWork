@@ -16,5 +16,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/GautamVisa/Softwares/JEE_Training/taglibs-standard-1.2.5-source-release"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
