@@ -9,10 +9,10 @@ public class Program {
 	public static void main(String[] args){
 		System.out.println("Hellow World");
 		Session session = HibernateUtilities.getSessionFactory().openSession();
-		session.close();
+
 		
 		User user = new User();
-		user.setId("1");
+		//user.setId("1");
 		user.setName("Gautam");
 		user.setPassword("admin");
 		session.save(user);
